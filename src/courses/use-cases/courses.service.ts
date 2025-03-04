@@ -1,21 +1,19 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { CreateCourseDto } from './dto/create-course.dto';
-import { UpdateCourseDto } from './dto/update-course.dto';
+import { CreateCourseDto } from '../dto/create-course.dto';
+import { UpdateCourseDto } from '../dto/update-course.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { CourseEntity } from './entities/course.entity';
-import { LessonsEntity } from 'src/lessons/entities/lesson.entity';
-import { ICourses } from './interfaces/ICourses';
+import { CourseEntity } from '../entities/course.entity';
+import { LessonsEntity } from '../../lessons/entities/lesson.entity';
+import { ICourses } from '../interfaces/ICourses';
 
 @Injectable()
 export class CoursesService implements ICourses {
-  constructor(
-    @InjectRepository(CourseEntity)
-    private readonly courseRepository: Repository<CourseEntity>,
+  @InjectRepository(CourseEntity)
+  private readonly courseRepository: Repository<CourseEntity>;
 
-    @InjectRepository(LessonsEntity)
-    private readonly lessonsRepository: Repository<LessonsEntity>,
-  ) {}
+  @InjectRepository(LessonsEntity)
+  private readonly lessonsRepository: Repository<LessonsEntity>;
 
   async createCourse(createCourseDto: CreateCourseDto) {
     const lessons = await Promise.all(

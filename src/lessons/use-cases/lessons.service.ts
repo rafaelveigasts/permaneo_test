@@ -1,17 +1,16 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { CreateLessonDto } from './dto/create-lesson.dto';
-import { UpdateLessonDto } from './dto/update-lesson.dto';
-import { ILessons } from './interfaces/ILessons';
+import { CreateLessonDto } from '../dto/create-lesson.dto';
+import { UpdateLessonDto } from '../dto/update-lesson.dto';
+import { ILessons } from '../interfaces/ILessons';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { LessonsEntity } from './entities/lesson.entity';
+import { LessonsEntity } from '../entities/lesson.entity';
 
 @Injectable()
 export class LessonsService implements ILessons {
-  constructor(
-    @InjectRepository(LessonsEntity)
-    private readonly lessonsRepository: Repository<LessonsEntity>,
-  ) {}
+  @InjectRepository(LessonsEntity)
+  private readonly lessonsRepository: Repository<LessonsEntity>;
+
   async createLesson(
     createLessonDto: CreateLessonDto,
   ): Promise<CreateLessonDto> {

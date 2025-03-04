@@ -1,4 +1,4 @@
-import { LessonsEntity } from 'src/lessons/entities/lesson.entity';
+import { LessonsEntity } from '../../lessons/entities/lesson.entity';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('courses')
