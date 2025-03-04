@@ -29,6 +29,8 @@
 $ npm install
 $ docker compose up -d
 $ npm run migration:run
+
+http://localhost:3000/api
 ```
 
 ## Compile and run the project
