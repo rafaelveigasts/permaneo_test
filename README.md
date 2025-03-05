@@ -26,10 +26,19 @@
 ## Project setup
 
 ```bash
+
+1 - instele as dependências com
 $ npm install
+
+2 - crie um arquivo .env com as variáveis do arquivo .env.example
+
+3 - suba o banco de dados
 $ docker compose up -d
+
+4 rode as migrations para criar as tabelas
 $ npm run migration:run
 
+5 - acesse a documentação em
 http://localhost:3000/api
 ```
 
